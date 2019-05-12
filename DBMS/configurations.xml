@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<configuration connectionString="Server=DESKTOP-C3HEJ9U\SQLEXPRESS;Database=SpaceLaunchCompany;Trusted_Connection = True"
+               currentScenarioId="1">
+
+  <scenario id="0">
+    
+      <parentTable name="Stage">
+        
+          <selectString value="select * from Stage"></selectString>
+        
+          <primary-key>sid</primary-key>
+          <foreign-key>vid</foreign-key>
+        
+          <columns>
+            <column name="sid"></column>
+            <column name="diameter"></column>
+            <column name="vid"></column>
+            <column name="name"></column>
+          </columns>
+      
+      </parentTable>
+    
+      <childTable name="Engine">
+        
+        <selectString value="select * from Engine"></selectString>
+        <primary-key>eid</primary-key>
+        <foreign-key>sid</foreign-key>
+        
+        <columns>
+          <column name="eid"></column>
+          <column name="thrust"></column>
+          <column name="fueltype"></column>
+          <column name="sid"></column>
+        </columns>
+      
+      </childTable>
+    
+  </scenario>
+
+  
+    
+  <scenario id="1">
+    <parentTable name="Contract">
+      
+      <selectString value="select * from Contract"></selectString>
+      <primary-key>cid</primary-key>
+      <foreign-key></foreign-key>
+      
+      <columns>
+        <column name="cid"></column>
+        <column name="price"></column>
+        <column name="location"></column>
+        <column name="date"></column>
+      </columns>
+    
+    </parentTable>
+
+    <childTable name="TargetOrbit">
+      
+      <selectString value="select * from TargetOrbit"></selectString>
+      <primary-key>tid</primary-key>
+      <foreign-key>cid</foreign-key>
+      
+      <columns>
+        <column name="tid"></column>
+        <column name="semi_major_axis"></column>
+        <column name="eccentricity"></column>
+        <column name="inclination"></column>
+        <column name="cid"></column>
+      </columns>
+    
+    </childTable>
+
+  </scenario>
+
+</configuration>
